@@ -102,8 +102,8 @@ Piece Piezas::gameState()
 
   //do vertical, same as horiz except swap ij
   
-  for (size_t i = 0; i < board.size(); i++) {
-    for (size_t j = 1; j < board[i].size(); j++) {
+  for (unsigned int i = 0; i < board.size(); i++) {
+    for (unsigned int j = 1; j < board[i].size(); j++) {
       if (board[j][i] == board[j][i - 1]) 
         tmp_max++;
       else {
