@@ -32,6 +32,7 @@ Piezas::Piezas()
 **/
 void Piezas::reset()
 {
+  board = std::vector<std::vector<Piece> >(3, std::vector<Piece>(4, Blank));
 }
 
 /**
