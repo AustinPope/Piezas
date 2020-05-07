@@ -52,7 +52,7 @@ Piece Piezas::dropPiece(int column)
 
   if (column < 0 || column > 3) return Invalid;
 
-  for (size_t i = board[column].size() - 1; i >= 0; i--) {
+  for ( int i = board[column].size() - 1; i >= 0; i--) {
     if (board[i][column] == Blank) {
       board[i][column] = temp;
       return temp;
@@ -123,5 +123,4 @@ Piece Piezas::gameState()
   else if (max_O > max_X) return O;
   return Blank;
 }
-
 
