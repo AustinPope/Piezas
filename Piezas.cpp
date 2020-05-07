@@ -22,6 +22,8 @@
 **/
 Piezas::Piezas()
 {
+  board.resize(3, std::vector<Piece>(4, Blank));
+  turn = X;
 }
 
 /**
