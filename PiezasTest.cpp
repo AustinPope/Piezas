@@ -16,5 +16,84 @@ class PiezasTest : public ::testing::Test
 
 TEST(PiezasTest, Test_one)
 {
-  Piezas test;
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(0);
+  ASSERT_EQ(test_return, 'X');
+}
+
+TEST(PiezasTest, Test_two)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.dropPiece(1);
+  ASSERT_EQ(test_return, 'O');
+}
+
+TEST(PiezasTest, Test_three)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.dropPiece(1);
+  char test_return = (char)test_piezas.dropPiece(2);
+  ASSERT_EQ(test_return, 'X');
+}
+
+TEST(PiezasTest, Test_four)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(5);
+  ASSERT_EQ(test_return, '?');
+}
+
+TEST(PiezasTest, Test_five)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(-1);
+  ASSERT_EQ(test_return, '?');
+}
+
+TEST(PiezasTest, Test_six)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.dropPiece(0);
+  ASSERT_EQ(test_return, ' ');
+}
+
+TEST(PiezasTest, Test_seven)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.pieceAt(0,0);
+  ASSERT_EQ(test_return, 'X');
+}
+
+TEST(PiezasTest, Test_eight)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.dropPiece(0);
+  char test_return = (char)test_piezas.pieceAt(1,0);
+  ASSERT_EQ(test_return, 'O');
+}
+
+TEST(PiezasTest, Test_nine)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(1);
+  char test_return = (char)test_piezas.dropPiece(1);
+  char test_return = (char)test_piezas.pieceAt(1,1);
+  ASSERT_EQ(test_return, 'O');
+}
+
+TEST(PiezasTest, Test_ten)
+{
+  Piezas test_piezas;
+  char test_return = (char)test_piezas.dropPiece(2);
+  char test_return = (char)test_piezas.dropPiece(2);
+  char test_return = (char)test_piezas.dropPiece(2);
+  char test_return = (char)test_piezas.pieceAt(2,2);
+  ASSERT_EQ(test_return, 'O');
 }
