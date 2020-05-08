@@ -1,7 +1,3 @@
-//#include <iostream>
-//using namespace std;
-
-
 #include "Piezas.h"
 #include <vector>
 /** CLASS Piezas
@@ -71,12 +67,6 @@ Piece Piezas::dropPiece(int column)
  **/
 Piece Piezas::pieceAt(int row, int column)
 {
-
-  /*for (int i = 0; i < (int)board.size(); i++) {
-    for (int j = 0; j < (int)board[i].size(); j++)
-      cout << (char)board[i][j];
-    cout << endl;
-  }*/
 
   if (row < 0 || row > 2 || column < 0 || column > 3) return Invalid;
 
