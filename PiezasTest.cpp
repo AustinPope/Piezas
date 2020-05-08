@@ -24,7 +24,7 @@ TEST(PiezasTest, Test_one)
 TEST(PiezasTest, Test_two)
 {
   Piezas test_piezas;
-  char test_return = (char)test_piezas.dropPiece(0);
+  test_piezas.dropPiece(0);
   char test_return = (char)test_piezas.dropPiece(1);
   ASSERT_EQ(test_return, 'O');
 }
@@ -32,8 +32,8 @@ TEST(PiezasTest, Test_two)
 TEST(PiezasTest, Test_three)
 {
   Piezas test_piezas;
-  char test_return = (char)test_piezas.dropPiece(0);
-  char test_return = (char)test_piezas.dropPiece(1);
+  test_piezas.dropPiece(0);
+  test_piezas.dropPiece(1);
   char test_return = (char)test_piezas.dropPiece(2);
   ASSERT_EQ(test_return, 'X');
 }
@@ -55,9 +55,9 @@ TEST(PiezasTest, Test_five)
 TEST(PiezasTest, Test_six)
 {
   Piezas test_piezas;
-  char test_return = (char)test_piezas.dropPiece(0);
-  char test_return = (char)test_piezas.dropPiece(0);
-  char test_return = (char)test_piezas.dropPiece(0);
+  test_piezas.dropPiece(0);
+  test_piezas.dropPiece(0);
+  test_piezas.dropPiece(0);
   char test_return = (char)test_piezas.dropPiece(0);
   ASSERT_EQ(test_return, ' ');
 }
@@ -65,7 +65,7 @@ TEST(PiezasTest, Test_six)
 TEST(PiezasTest, Test_seven)
 {
   Piezas test_piezas;
-  char test_return = (char)test_piezas.dropPiece(0);
+  test_piezas.dropPiece(0);
   char test_return = (char)test_piezas.pieceAt(0,0);
   ASSERT_EQ(test_return, 'X');
 }
@@ -73,8 +73,8 @@ TEST(PiezasTest, Test_seven)
 TEST(PiezasTest, Test_eight)
 {
   Piezas test_piezas;
-  char test_return = (char)test_piezas.dropPiece(0);
-  char test_return = (char)test_piezas.dropPiece(0);
+  test_piezas.dropPiece(0);
+  test_piezas.dropPiece(0);
   char test_return = (char)test_piezas.pieceAt(1,0);
   ASSERT_EQ(test_return, 'O');
 }
@@ -82,8 +82,8 @@ TEST(PiezasTest, Test_eight)
 TEST(PiezasTest, Test_nine)
 {
   Piezas test_piezas;
-  char test_return = (char)test_piezas.dropPiece(1);
-  char test_return = (char)test_piezas.dropPiece(1);
+  test_piezas.dropPiece(1);
+  test_piezas.dropPiece(1);
   char test_return = (char)test_piezas.pieceAt(1,1);
   ASSERT_EQ(test_return, 'O');
 }
@@ -91,9 +91,9 @@ TEST(PiezasTest, Test_nine)
 TEST(PiezasTest, Test_ten)
 {
   Piezas test_piezas;
-  char test_return = (char)test_piezas.dropPiece(2);
-  char test_return = (char)test_piezas.dropPiece(2);
-  char test_return = (char)test_piezas.dropPiece(2);
+  test_piezas.dropPiece(2);
+  test_piezas.dropPiece(2);
+  test_piezas.dropPiece(2);
   char test_return = (char)test_piezas.pieceAt(2,2);
   ASSERT_EQ(test_return, 'O');
 }
