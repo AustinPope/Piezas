@@ -16,5 +16,5 @@ class PiezasTest : public ::testing::Test
 
 TEST(PiezasTest, Test_one)
 {
-  ASSERT_TRUE(true);
+  Piezas test;
 }
