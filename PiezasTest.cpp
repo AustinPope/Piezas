@@ -204,7 +204,7 @@ TEST(PiezasTest, Test_fifteen)
 }
 
 
-TEST(PiezasTest, Test_fifteen)
+TEST(PiezasTest, Test_sixteen)
 {
   Piezas test_piezas;
   test_piezas.dropPiece(0);
