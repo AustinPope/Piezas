@@ -1,3 +1,7 @@
+//#include <iostream>
+//using namespace std;
+
+
 #include "Piezas.h"
 #include <vector>
 /** CLASS Piezas
@@ -52,7 +56,7 @@ Piece Piezas::dropPiece(int column)
 
   if (column < 0 || column > 3) return Invalid;
 
-  for ( int i = board[column].size() - 1; i >= 0; i--) {
+  for ( int i = board.size() - 1; i >= 0; i--) {
     if (board[i][column] == Blank) {
       board[i][column] = temp;
       return temp;
@@ -67,9 +71,16 @@ Piece Piezas::dropPiece(int column)
  **/
 Piece Piezas::pieceAt(int row, int column)
 {
+
+  /*for (int i = 0; i < (int)board.size(); i++) {
+    for (int j = 0; j < (int)board[i].size(); j++)
+      cout << (char)board[i][j];
+    cout << endl;
+  }*/
+
   if (row < 0 || row > 2 || column < 0 || column > 3) return Invalid;
 
-  return board[row][column];
+  return board[board.size() - 1 - row][column];
 }
 
 /**
@@ -83,44 +94,96 @@ Piece Piezas::pieceAt(int row, int column)
  **/
 Piece Piezas::gameState()
 {
-  int tmp_max, max_O, max_X = 1;
+  int tmp_max_X = 0, tmp_max_O = 0, max_O = 0, max_X = 0;
   for ( int i = 0; i < (int)board.size(); i++) {
     for (int j = 0; j < (int)board[i].size(); j++) {
       if (board[i][j] == Blank) return Invalid;
-      if (j == 0) continue;
-      if (board[i][j] == board[i][j - 1]) 
-        tmp_max++;
-      else {
-        if (board[i][j-1] == O && tmp_max > max_O) 
-          max_O = tmp_max;
-        if (board[i][j-1] == X && tmp_max > max_X)
-          max_X = tmp_max;
-        tmp_max = 1;
+      if (board[i][j] == O) {
+        tmp_max_O++;
+        tmp_max_X = 0;
       }
+      if (board[i][j] == X) {
+        tmp_max_X++;
+        tmp_max_O = 0;
+      }
+      if (tmp_max_X > max_X)
+        max_X = tmp_max_X;
+      if (tmp_max_O > max_O)
+        max_O = tmp_max_O;
     }
+    tmp_max_X = 0;
+    tmp_max_O = 0;
   }
 
-  //do vertical, same as horiz except swap ij
-  
-  for ( int i = 0; i < (int)board.size(); i++) {
-    for ( int j = 1; j < (int)board[i].size(); j++) {
-      if (board[j][i] == board[j][i - 1]) 
-        tmp_max++;
-      else {
-        if (board[j][i-1] == O && tmp_max > max_O) 
-          max_O = tmp_max;
-        if (board[j][i-1] == X && tmp_max > max_X)
-          max_X = tmp_max;
-        tmp_max = 1;
+  for ( int i = 0; i < (int)board[0].size(); i++) {
+    for ( int j = 0; j < (int)board.size(); j++) {
+      if (board[j][i] == Blank) return Invalid;
+      if (board[j][i] == O) {
+        tmp_max_O++;
+        tmp_max_X = 0;
       }
+      if (board[j][i] == X) {
+        tmp_max_X++;
+        tmp_max_O = 0;
+      }
+      if (tmp_max_X > max_X)
+        max_X = tmp_max_X;
+      if (tmp_max_O > max_O)
+        max_O = tmp_max_O;
     }
+    tmp_max_X = 0;
+    tmp_max_O = 0;
   }
 
 
-  //return based off of maxO and maxX
-  
   if (max_X > max_O) return X;
   else if (max_O > max_X) return O;
   return Blank;
 }
+
+
+//int main() {
+//
+//  Piezas test;
+//
+//  cout << (char)test.gameState() << endl;
+//
+//  cout << (char)test.dropPiece(0) << endl;
+//  cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(1) << endl;
+//  //cout << (char)test.dropPiece(0) << endl;
+//  //cout << (char)test.dropPiece(-1) << endl;
+//  cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(2) << endl;
+//  cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(3) << endl;
+//  cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(0) << endl;
+//  cout << (char)test.dropPiece(1) << endl;
+//  cout << (char)test.dropPiece(2) << endl;
+//  cout << (char)test.dropPiece(3) << endl;
+//  //cout << (char)test.dropPiece(1) << endl;
+//  //cout << (char)test.dropPiece(2) << endl;
+//  //cout << (char)test.dropPiece(3) << endl;
+//  //cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(1) << endl;
+//  cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(2) << endl;
+//  cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(3) << endl;
+//  cout << (char)test.dropPiece(4) << endl;
+//  cout << (char)test.dropPiece(0) << endl;
+//
+//  cout << (char)test.pieceAt(0,0) << endl;
+//  cout << (char)test.pieceAt(1,1) << endl;
+//  cout << (char)test.pieceAt(0,1) << endl<<endl;
+//
+//  cout << (char)test.gameState() << endl;
+//
+//
+//}
+//
+
+
+
 
